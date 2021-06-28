@@ -28,6 +28,8 @@ router.get("/dashboard", (req, res) => {
     res.send("<H1>Dashboard page</H1>");
   });
 
+  router.post("/dashboard", getDashboard);
+
 router.get("/register", (req, res) => {
     res.status(200).sendFile("register.html", {root: "./views/users"});
   });

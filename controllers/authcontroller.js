@@ -26,11 +26,11 @@ const postLogin = async (req, res) => {
     //     return res.json({msg: "Password is incorrect!"});
     // }
 
-    res.json({msg:"Logged in"});
+    res.redirect('../views/dashboard.html')
 };
 
 const getDashboard = (req, res) => {
-    res.sendFile("index.html", { root: "./views" });
+    res.sendFile("dashboard.html", { root: "./views" });
 };
 
 module.exports = { getDashboard, getHome, getLogin, postLogin};

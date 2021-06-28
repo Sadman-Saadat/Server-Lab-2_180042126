@@ -19,6 +19,11 @@ const userInfo = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+
+    reType_password: {
+        type: String,
+        required: true
     }
 })
 

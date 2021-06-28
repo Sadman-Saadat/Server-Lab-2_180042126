@@ -1,6 +1,9 @@
 const userInfo = require('../model/connection');
 const pass_encrypt = require("bcrypt");
 
+var LocalStorage = require("node-localstorage").LocalStorage;
+LocalStorage = new LocalStorage("./scratch");
+
 const getRegister = (req,res)=> {
     res.sendFile("register.html", { root: "./views/users" });
 };
@@ -12,7 +15,7 @@ const postRegister = async (req,res)=>{
         username:req.body.username,
         email:req.body.email,
         gender:req.body.gender,
-        password:encryptPass
+        password:encryptPass,
 
     })
     user.save()
