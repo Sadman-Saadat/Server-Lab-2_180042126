@@ -2,12 +2,20 @@ const express = require("express");
 const router = express.Router();
 
 
+// router.get("/", (req, res) => {
+//     res.send("<H1>Home page</H1>");
+//   });
+
+// router.post("/", (req, res) => {
+//    res.send("<H1>Home page</H1>");
+// });
+
 router.get("/", (req, res) => {
-    res.status(200).send.File("home.html", {root: "./views"});
+    res.status(200).sendFile("home.html", {root: "./views"});
   });
 
 router.post("/", (req, res) => {
-    res.status(200).send.File("home.html", {root: "./views"});
+    res.status(200).sendFile("home.html", {root: "./views"});
   });
 
 router.get("/dashboard", (req, res) => {
@@ -15,11 +23,11 @@ router.get("/dashboard", (req, res) => {
   });
 
 router.get("/register", (req, res) => {
-    res.send("<H1>Register page</H1>");
+    res.status(200).sendFile("register.html", {root: "./views/users"});
   });
 
 router.get("/login", (req, res) => {
-    res.send("<H1>Login page</H1>");
+    res.status(200).sendFile("login.html", {root: "./views/users"});
   });
 
 router.use((req, res) => {
