@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {getRegister, postRegister} = require("../controllers/usercontroller")
+const {getRegister, postRegister} = require("../controllers/usercontroller");
+const {getDashboard, getHome, getLogin, postLogin} = require("../controllers/authcontroller");
 
 const bodyParser = require("body-parser");
 
@@ -36,6 +37,8 @@ router.get("/register", (req, res) => {
 router.get("/login", (req, res) => {
     res.status(200).sendFile("login.html", {root: "./views/users"});
   });
+
+  router.post("/login", postLogin)
 
 router.use((req, res) => {
     res.status(401).send("Page doesn't exist!");
