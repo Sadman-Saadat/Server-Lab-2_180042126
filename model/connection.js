@@ -1,18 +1,25 @@
 const mongoose = require('mongoose');
 
-//Connect with db
-// mongoose.connect("mongodb://localhost:27017/Auth", {
-//     useNewUrlParser:true,
-//     useUnifiedTopology:true,
-//     useCreateIndex:true
-// }).then(() =>{
-//     console.log(`Connection successful`);
-// }).catch(() =>{
-//     console.log(`Unsuccessful`);
-// })
+const userInfo = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
 
-// mongoose.connection.once('open', function(){
-//     console.log("Connected to DB");
-// }).on('error', function(error){
-//     console.log("error: ")
-// });
+    email: {
+        type: String,
+        required: 'Email address is required'
+    },
+
+    gender: {
+        type: String,
+        required: 'Password is required'
+    },
+
+    password: {
+        type: String,
+        required: true
+    }
+})
+
+module.exports = mongoose.model('user', userInfo);

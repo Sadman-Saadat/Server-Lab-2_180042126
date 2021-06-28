@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const {getRegister, postRegister} = require("../controllers/usercontroller")
 
+const bodyParser = require("body-parser");
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 // router.get("/", (req, res) => {
 //     res.send("<H1>Home page</H1>");
@@ -25,6 +30,8 @@ router.get("/dashboard", (req, res) => {
 router.get("/register", (req, res) => {
     res.status(200).sendFile("register.html", {root: "./views/users"});
   });
+
+  router.post("/register", postRegister)
 
 router.get("/login", (req, res) => {
     res.status(200).sendFile("login.html", {root: "./views/users"});
